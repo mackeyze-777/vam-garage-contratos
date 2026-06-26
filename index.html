@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>VAM Garage — Reglamento y Contratos</title>
+<style>
+:root{
+  --bg:#050505; --bg2:#0c0c0c; --bg3:#131313; --line:#1e1e1e; --line2:#2c2c2c;
+  --accent:#e8178a; --text:#f0f0f0; --text2:#cfd0d4; --muted:#808490;
+  --pad:clamp(16px,4.5vw,28px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.5;min-height:100dvh;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+header{position:sticky;top:0;z-index:30;background:rgba(5,5,5,.9);backdrop-filter:blur(14px);border-top:3px solid var(--accent);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:12px;padding:11px 0}
+.logo{width:38px;height:38px;border-radius:11px;background:var(--accent);color:#050505;display:grid;place-items:center;font-weight:800;font-size:19px;flex-shrink:0}
+.hd h1{font-size:16px;font-weight:800;letter-spacing:.3px}
+.hd p{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:1px}
+
+.disc{margin:16px 0 6px;padding:12px 14px;background:rgba(240,165,0,.08);border:1px solid rgba(240,165,0,.35);border-radius:11px;font-size:12.5px;color:#f0c674;line-height:1.5}
+.disc b{color:#f0a500}
+
+h2.sec{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:700;margin:22px 0 12px;display:flex;align-items:center;gap:10px}
+h2.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.seg{display:flex;gap:8px;margin:16px 0 6px;flex-wrap:wrap}
+.seg button{flex:1;min-width:120px;min-height:46px;background:var(--bg2);border:1px solid var(--line);color:var(--text2);font:inherit;font-weight:700;font-size:14px;border-radius:11px;cursor:pointer;transition:background .15s,border-color .15s,color .15s,transform .1s}
+.seg button.on{background:var(--accent);color:#050505;border-color:var(--accent)}
+.seg button:active{transform:scale(.97)}
+@media(hover:hover){.seg button:hover{border-color:var(--line2);color:var(--text)}.seg button.on:hover{color:#050505}}
+
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld.full{grid-column:1/-1}
+.fld label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:700}
+.fld input,.fld select{background:var(--bg2);border:1px solid var(--line);border-radius:10px;height:46px;padding:0 13px;color:var(--text);font:inherit;font-size:15px}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--accent)}
+.fld input::placeholder{color:#5b5f6b}
+.hint{font-size:11px;color:var(--muted);margin-top:-2px}
+
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 10px}
+.btn{display:inline-flex;align-items:center;gap:7px;min-height:46px;background:var(--accent);color:#050505;border:0;font:inherit;font-size:14px;font-weight:800;padding:0 20px;border-radius:11px;cursor:pointer;transition:filter .15s,transform .1s}
+.btn.alt{background:var(--bg2);color:var(--text);border:1px solid var(--line2);font-weight:700}
+.btn:active{transform:scale(.97)}
+@media(hover:hover){.btn:hover{filter:brightness(1.08)}.btn.alt:hover{border-color:var(--accent);filter:none}}
+
+/* ===== Documento (papel) ===== */
+.doc{background:#fff;color:#1a1c20;border-radius:10px;margin:8px 0 60px;padding:0;box-shadow:0 20px 60px -24px rgba(0,0,0,.7);overflow:hidden}
+.doc-band{height:6px;background:var(--accent)}
+.doc-in{padding:clamp(22px,5vw,44px)}
+.doc h2.tt{font-size:clamp(17px,3.6vw,21px);font-weight:800;text-align:center;letter-spacing:.3px;line-height:1.25;margin-bottom:4px}
+.doc .tt-sub{text-align:center;font-size:11px;color:#7a7d85;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
+.doc .brandbar{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #1a1c20;padding-bottom:10px;margin-bottom:18px;gap:12px}
+.doc .brandbar .b{font-weight:800;letter-spacing:3px;font-size:14px}
+.doc .brandbar .b small{display:block;font-size:8px;letter-spacing:1.5px;color:#888;font-weight:600;margin-top:3px}
+.doc .brandbar .meta{text-align:right;font-size:10px;color:#666;line-height:1.5}
+.doc h3{font-size:13.5px;font-weight:800;margin:18px 0 7px;color:#16181d;text-transform:uppercase;letter-spacing:.4px}
+.doc p,.doc li{font-size:12.5px;line-height:1.6;color:#2c2f36;text-align:justify}
+.doc p{margin:6px 0}
+.doc ol,.doc ul{margin:6px 0 6px 20px}
+.doc li{margin:4px 0}
+.doc .mark{background:#fdeef6;padding:0 3px;border-radius:3px;font-weight:600;color:#a31368}
+.doc .clause{margin:12px 0}
+.doc .clause>b{color:#16181d}
+.doc .sign{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:40px}
+.doc .sign .l{border-top:1.4px solid #1a1c20;padding-top:8px;font-size:11px;color:#555;font-weight:600;text-align:center}
+.doc .sign .l b{display:block;color:#16181d;font-size:12px;margin-bottom:1px}
+.doc .foot{margin-top:26px;padding-top:12px;border-top:1px solid #e6e7ea;font-size:9.5px;color:#9a9da4;line-height:1.5;text-align:center}
+.doc .warn{margin-top:14px;padding:9px 12px;background:#fff7e6;border:1px solid #f0c674;border-radius:7px;font-size:10px;color:#8a6d1a;line-height:1.5}
+
+@media print{
+  body{background:#fff}
+  header,.disc,.controls,.toolbar,h2.sec,.seg,.fields{display:none!important}
+  .doc{box-shadow:none;border-radius:0;margin:0}
+  .doc-band{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc .mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  @page{margin:16mm}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <div class="logo">V</div>
+  <div><h1>VAM Garage</h1><p>Reglamento y Contratos</p></div>
+</div></header>
+
+<main class="wrap">
+  <div class="disc">⚠️ <b>Borrador para revisar.</b> Estos documentos están basados en la Ley Federal del Trabajo (México). Antes de firmarlos, conviene que un contador o abogado local los revise. No constituyen asesoría legal.</div>
+
+  <div class="controls">
+    <div class="seg" id="segDoc">
+      <button data-d="reglamento" class="on">📋 Reglamento Interior</button>
+      <button data-d="contrato">📝 Contrato Individual</button>
+    </div>
+
+    <h2 class="sec">Datos del patrón</h2>
+    <div class="fields">
+      <div class="fld full"><label>Nombre del patrón (persona física)</label><input id="p-nom" value="Mackey Zenteno" placeholder="Tu nombre completo"></div>
+      <div class="fld"><label>Nombre comercial</label><input id="p-com" value="VAM Garage"></div>
+      <div class="fld"><label>RFC del patrón (opcional)</label><input id="p-rfc" placeholder="____________"></div>
+      <div class="fld full"><label>Domicilio del taller</label><input id="p-dom" value="Pachuca de Soto, Hidalgo" placeholder="Calle, número, colonia, ciudad"></div>
+    </div>
+
+    <h2 class="sec" id="hsec-trab">Datos del trabajador</h2>
+    <div class="fields" id="trabFields">
+      <div class="fld full"><label>Nombre del trabajador</label><input id="t-nom" placeholder="Ej. Ángel ___"></div>
+      <div class="fld"><label>Puesto</label><input id="t-pue" value="Técnico de detailing" placeholder="Puesto"></div>
+      <div class="fld"><label>Fecha de inicio</label><input id="t-fec" type="date"></div>
+      <div class="fld"><label>CURP (opcional)</label><input id="t-curp" placeholder="____________"></div>
+      <div class="fld"><label>Domicilio del trabajador</label><input id="t-dom" placeholder="Domicilio"></div>
+      <div class="fld"><label>Sueldo</label><input id="t-sue" type="number" inputmode="numeric" placeholder="Ej. 1500"></div>
+      <div class="fld"><label>Periodo de pago</label>
+        <select id="t-per"><option value="a la semana">Semanal</option><option value="cada quince días">Quincenal</option><option value="al mes">Mensual</option></select></div>
+      <div class="fld"><label>Día de pago</label><input id="t-dia" value="viernes" placeholder="Ej. viernes"></div>
+    </div>
+
+    <h2 class="sec">Jornada</h2>
+    <div class="fields">
+      <div class="fld"><label>Entrada</label><input id="j-ent" value="9:30 a.m."></div>
+      <div class="fld"><label>Salida</label><input id="j-sal" value="6:30 p.m." placeholder="Ej. 6:30 p.m."></div>
+      <div class="fld"><label>Comida</label><input id="j-com" value="1 hora" placeholder="Ej. 1 hora"></div>
+      <div class="fld"><label>Días de trabajo</label><input id="j-dias" value="lunes a viernes"></div>
+      <div class="fld"><label>Día de descanso</label><input id="j-desc" value="sábado y domingo"></div>
+      <div class="fld"><label>Tolerancia de entrada</label><input id="j-tol" value="10 minutos"></div>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn" id="b-print">🖨️ Imprimir / Guardar PDF</button>
+    </div>
+  </div>
+
+  <div class="doc"><div class="doc-band"></div><div class="doc-in" id="doc"></div></div>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+let docType='reglamento';
+$('#t-fec').value=new Date().toISOString().slice(0,10);
+const v=id=>($('#'+id).value||'').trim();
+const fmtDate=iso=>{ if(!iso)return '____________'; const[y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; };
+const blank=(s,n)=> s || '_'.repeat(n||20);
+const money=n=>n?('$'+Number(n).toLocaleString('es-MX')):'$________';
+
+function patron(){ return v('p-nom')||'____________'; }
+function comercial(){ return v('p-com')||'VAM Garage'; }
+
+function reglamento(){
+  const P=patron(), C=comercial(), DOM=v('p-dom')||'____________';
+  const ENT=v('j-ent'), SAL=v('j-sal'), COM=v('j-com'), DIAS=v('j-dias'), DESC=v('j-desc'), TOL=v('j-tol');
+  return `
+  <div class="brandbar"><div class="b">VAM GARAGE<small>Estudio automotriz · Pachuca, Hidalgo</small></div><div class="meta">Documento interno<br>Reglamento Interior de Trabajo</div></div>
+  <h2 class="tt">REGLAMENTO INTERIOR DE TRABAJO</h2>
+  <div class="tt-sub">${C} · ${P}</div>
+
+  <p>El presente Reglamento Interior de Trabajo se establece conforme a los artículos 422 a 425 de la Ley Federal del Trabajo, entre <b>${P}</b>, quien opera bajo el nombre comercial <b>${C}</b> (en adelante "la Empresa" o "el patrón"), con domicilio en ${DOM}, y el personal que presta sus servicios en el taller. Su cumplimiento es obligatorio para todo el personal.</p>
+
+  <h3>1. Disposiciones generales</h3>
+  <p>Este reglamento regula la relación de trabajo dentro del taller. Todo trabajador declara conocerlo y aceptarlo al firmarlo, y se compromete a cumplirlo.</p>
+
+  <h3>2. Horario de trabajo</h3>
+  <p>La hora de entrada es a las <b class="mark">${ENT}</b> y la salida a las <b>${SAL}</b>, de <b>${DIAS}</b>, con <b>${COM}</b> de comida. Los días de descanso son <b>${DESC}</b>.</p>
+  <ul>
+    <li>Existe una tolerancia máxima de <b class="mark">${TOL}</b> después de la hora de entrada. Pasado ese tiempo se considera retardo.</li>
+    <li><b>Tres retardos</b> en un mismo periodo de pago pueden dar lugar a una sanción disciplinaria conforme a este reglamento.</li>
+    <li>El trabajador debe presentarse listo para iniciar labores a la hora de entrada (cambiado y con su equipo), no apenas llegando.</li>
+    <li>Las faltas deben avisarse <b>antes</b> de la hora de entrada y justificarse (con incapacidad médica cuando corresponda).</li>
+  </ul>
+
+  <h3>3. Conducta durante el trabajo</h3>
+  <ul>
+    <li>El <b class="mark">teléfono celular permanece guardado</b> durante el trabajo operativo. Solo puede usarse en la comida, en los descansos o por una emergencia.</li>
+    <li>Es obligatorio usar el equipo de protección (guantes, lentes, cubrebocas) según la tarea.</li>
+    <li>Presentarse con ropa de trabajo limpia. Queda prohibido presentarse o trabajar bajo el efecto de alcohol o drogas.</li>
+    <li>Trato respetuoso entre compañeros y hacia los clientes. Los temas de precio se canalizan con el encargado, no se discuten con el cliente.</li>
+  </ul>
+
+  <h3>4. Calidad y avance del trabajo</h3>
+  <ul>
+    <li>Cada trabajo se revisa por <b>cortes de avance</b> (tiempo y calidad). Si no se cumple el avance esperado en tiempo y calidad, la tarea puede retirarse y reasignarse.</li>
+    <li>Ningún vehículo se entrega al cliente sin pasar la revisión de calidad correspondiente.</li>
+    <li>Los daños, retrabajos por descuido o distracciones quedan <b>registrados como incumplimiento</b>.</li>
+    <li>Todo incidente o daño debe reportarse de inmediato al encargado. Queda prohibido ocultarlo.</li>
+  </ul>
+
+  <h3>5. Cuidado del vehículo, herramienta y pertenencias</h3>
+  <ul>
+    <li>El vehículo del cliente es responsabilidad del taller desde que ingresa: las llaves se resguardan en lugar seguro y el vehículo solo se mueve para el servicio.</li>
+    <li>No se toman ni se usan las pertenencias del cliente; se resguardan identificadas y se devuelven completas.</li>
+    <li>El trabajador cuida la herramienta y el equipo, reporta fallas y mantiene su área limpia y ordenada.</li>
+  </ul>
+
+  <h3>6. Lugar y día de pago</h3>
+  <p>El salario se paga en el domicilio del taller, en efectivo o por transferencia, el día acordado en el contrato individual de cada trabajador.</p>
+
+  <h3>7. Bonos y comisiones</h3>
+  <ul>
+    <li>Los bonos y comisiones son <b>adicionales al salario</b> y se pagan únicamente cuando el trabajo se entrega <b>completo, en tiempo y aprobado por calidad</b>.</li>
+    <li>No se pagan bonos o comisiones no ganados. El salario y las prestaciones de ley se pagan siempre conforme a lo trabajado.</li>
+  </ul>
+
+  <h3>8. Disposiciones disciplinarias y su aplicación</h3>
+  <p>El incumplimiento de este reglamento da lugar a medidas disciplinarias aplicadas de forma <b>progresiva y documentada</b>:</p>
+  <ol>
+    <li>Llamada de atención verbal.</li>
+    <li>Amonestación por escrito.</li>
+    <li>Acta administrativa firmada.</li>
+    <li>Según la gravedad y la reincidencia, rescisión de la relación de trabajo por causa justificada, conforme a la Ley Federal del Trabajo.</li>
+  </ol>
+  <p>En todos los casos se pagará al trabajador lo que legalmente le corresponda (salario, prestaciones y, en su caso, finiquito).</p>
+
+  <h3>9. Vigencia</h3>
+  <p>Este reglamento entra en vigor a partir de su firma y permanece vigente hasta que la Empresa lo modifique y lo comunique al personal.</p>
+
+  <div class="sign">
+    <div class="l"><b>${P}</b>Patrón / ${C}</div>
+    <div class="l"><b>Trabajador</b>Nombre y firma de enterado</div>
+  </div>
+  <div class="warn">⚠️ Borrador basado en la Ley Federal del Trabajo. Recomendación: validar con contador o abogado y, para protección plena, registrar la relación laboral ante el IMSS.</div>
+  <div class="foot">VAM Garage · ${DOM} · Documento interno</div>`;
+}
+
+function contrato(){
+  const P=patron(), C=comercial(), RFC=v('p-rfc'), DOM=v('p-dom')||'____________';
+  const TN=v('t-nom')||'____________', PUE=v('t-pue')||'____________', FEC=fmtDate(v('t-fec'));
+  const CURP=v('t-curp'), TDOM=v('t-dom'), SUE=v('t-sue'), PER=v('t-per')||'a la semana', DIA=v('t-dia')||'____';
+  const ENT=v('j-ent'), SAL=v('j-sal'), COM=v('j-com'), DIAS=v('j-dias'), DESC=v('j-desc');
+  return `
+  <div class="brandbar"><div class="b">VAM GARAGE<small>Estudio automotriz · Pachuca, Hidalgo</small></div><div class="meta">Contrato individual de trabajo<br>${FEC}</div></div>
+  <h2 class="tt">CONTRATO INDIVIDUAL DE TRABAJO</h2>
+  <div class="tt-sub">Por tiempo indeterminado</div>
+
+  <p>Contrato individual de trabajo que celebran, por una parte, <b>${P}</b>${RFC?` (RFC ${RFC})`:''}, quien opera bajo el nombre comercial <b>${C}</b>, con domicilio en ${DOM}, a quien se le denominará <b>"EL PATRÓN"</b>; y por la otra, <b>${TN}</b>${CURP?` (CURP ${CURP})`:''}${TDOM?`, con domicilio en ${TDOM}`:''}, a quien se le denominará <b>"EL TRABAJADOR"</b>, al tenor de las siguientes cláusulas:</p>
+
+  <div class="clause"><b>PRIMERA. Objeto.</b> EL TRABAJADOR prestará sus servicios personales subordinados a EL PATRÓN en el puesto de <b>${PUE}</b>, realizando las actividades propias de dicho puesto y las relacionadas con la operación del taller (recepción, lavado, descontaminación, pulido, aplicación de protección, detallado de interiores, control de calidad y entrega), según se le indique.</div>
+
+  <div class="clause"><b>SEGUNDA. Lugar de trabajo.</b> Los servicios se prestarán en el domicilio del taller ubicado en ${DOM}, o en el lugar que EL PATRÓN determine para la prestación del servicio.</div>
+
+  <div class="clause"><b>TERCERA. Duración.</b> La relación de trabajo es por <b>tiempo indeterminado</b>, e inicia el <b>${FEC}</b>. Las partes podrán pactar un periodo de prueba en términos de la Ley Federal del Trabajo.</div>
+
+  <div class="clause"><b>CUARTA. Jornada.</b> EL TRABAJADOR cubrirá una jornada de <b>${DIAS}</b>, con entrada a las <b>${ENT}</b> y salida a las <b>${SAL}</b>, con <b>${COM}</b> de descanso para comida. El día de descanso semanal será <b>${DESC}</b>.</div>
+
+  <div class="clause"><b>QUINTA. Salario.</b> EL PATRÓN pagará a EL TRABAJADOR un salario de <b>${money(SUE)}</b> <b>${PER}</b>, que se cubrirá el día <b>${DIA}</b> en el domicilio del taller, en efectivo o por transferencia. El salario no será menor al mínimo legal vigente.</div>
+
+  <div class="clause"><b>SEXTA. Bonos y comisiones.</b> De forma adicional al salario, EL TRABAJADOR podrá recibir bonos o comisiones cuando el trabajo se entregue completo, en tiempo y aprobado por el control de calidad. Estos incentivos no forman parte del salario fijo y solo se pagan cuando se cumplen las condiciones señaladas.</div>
+
+  <div class="clause"><b>SÉPTIMA. Prestaciones.</b> EL TRABAJADOR gozará de las prestaciones mínimas de ley: aguinaldo, vacaciones y prima vacacional, días de descanso y demás que establece la Ley Federal del Trabajo.</div>
+
+  <div class="clause"><b>OCTAVA. Reglamento Interior.</b> EL TRABAJADOR declara conocer y aceptar el Reglamento Interior de Trabajo de ${C}, que forma parte integral de este contrato, y se obliga a cumplirlo, incluyendo las disposiciones de horario, conducta, calidad, cuidado del vehículo y herramienta, y las medidas disciplinarias.</div>
+
+  <div class="clause"><b>NOVENA. Obligaciones del trabajador.</b> Desempeñar el trabajo con cuidado y calidad; usar el equipo de protección; cuidar la herramienta, el equipo y los vehículos de los clientes; reportar de inmediato cualquier incidente o daño; y guardar confidencialidad de la información de la Empresa y de los clientes.</div>
+
+  <div class="clause"><b>DÉCIMA. Capacitación.</b> EL PATRÓN proporcionará la capacitación necesaria para el desempeño del puesto, conforme a los procedimientos del taller.</div>
+
+  <div class="clause"><b>DÉCIMA PRIMERA. Terminación.</b> La relación de trabajo podrá terminar por las causas previstas en la Ley Federal del Trabajo. En caso de incumplimiento grave o reiterado y documentado del trabajador, EL PATRÓN podrá rescindir el contrato por causa justificada, cubriendo lo que legalmente corresponda.</div>
+
+  <p style="margin-top:14px">Leído por ambas partes y enteradas de su contenido y alcance, lo firman por duplicado en Pachuca de Soto, Hidalgo, el <b>${FEC}</b>.</p>
+
+  <div class="sign">
+    <div class="l"><b>${P}</b>EL PATRÓN · ${C}</div>
+    <div class="l"><b>${TN}</b>EL TRABAJADOR</div>
+  </div>
+  <div class="warn">⚠️ Borrador basado en la Ley Federal del Trabajo. Recomendación: validar con contador o abogado y registrar al trabajador ante el IMSS. Un trabajador con subordinación y horario es empleado (no honorarios); el alta en IMSS protege a ambas partes y a la Empresa ante demandas.</div>
+  <div class="foot">VAM Garage · ${DOM} · Contrato individual de trabajo</div>`;
+}
+
+function render(){ $('#doc').innerHTML = docType==='reglamento'?reglamento():contrato(); }
+
+// los datos del trabajador solo aplican al contrato
+function toggleTrabFields(){
+  const show = docType==='contrato';
+  $('#hsec-trab').style.display=show?'':'none';
+  $('#trabFields').style.display=show?'':'none';
+}
+
+$('#segDoc').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b)return;
+  docType=b.dataset.d;
+  document.querySelectorAll('#segDoc button').forEach(x=>x.classList.toggle('on',x===b));
+  toggleTrabFields(); render();
+});
+document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',render));
+$('#b-print').onclick=()=>window.print();
+
+toggleTrabFields();
+render();
+</script>
+</body>
+</html>
